@@ -3,6 +3,14 @@
 Tareas, prácticas y utilidades generadas durante el curso de
 Estructuras Discretas - Facultad de Ciencias, UNAM.
 
+## Acerca de este repositorio
+
+El contenido de los folders es el siguiente:
+
+* **`hm`**: Tareas semanales
+* **`lab`**: Ejercicios realizados dentro del laboratorio
+* **`psets`**: Prácticas de laboratorio
+* **`assets`**: Assets usados por otros archivos, como imágenes, audio, etc.
 
 ## Instructores
 
@@ -20,3 +28,5 @@ Estructuras Discretas - Facultad de Ciencias, UNAM.
 ## Recursos
 
 * **[Google Site](https://sites.google.com/a/ciencias.unam.mx/ediscretas191/)**
+* **[Matemáticas Discretas - Favio E. Miranda y Elisa Viso G.](https://www.amazon.com.mx/Matem%C3%A1ticas-discretas-Spanish-Ezequiel-Paperback/dp/6070213025/)**
+* **[Learn You a Haskell for Great Good!](http://learnyouahaskell.com/)**
