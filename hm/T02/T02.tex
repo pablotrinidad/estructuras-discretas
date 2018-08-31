@@ -2,6 +2,8 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{graphicx}
 
 \usepackage{mathtools}
@@ -46,24 +48,134 @@
 \begin{enumerate}
     \item Encuentra el valor de verdad para las fórmulas generadas por los
     siguientes árboles de derivación, en el estado de las variables $p = 1$,
-    $r = 1$ y $q = 1$.
-        \begin{enumerate}
-            \item hola \\
-                \begin{tikzpicture}[nodes={draw,circle}]
-                    \node {E}
-                    child {node {F}
+    $r = 1$ y $q = 0$. \\
+    \begin{enumerate}
+        \item [a])\\
+            \begin{tikzpicture}[nodes={draw,circle},align=center]
+                \node {$\to$}
+                child {node {$\lor$}
+                    child {node {r}}
+                    child {node {$\neg$}
+                        child {node {p}}
                     }
-                    child {node {+}
+                }
+                child {node {$\neg$}
+                    child {node {p}}
+                };
+            \end{tikzpicture}
+
+            El árbol se reescribe como $r \lor \neg p \to \neg p$ y sustituyendo
+            por los valores de $p$ y $r$:
+                \begin{equation}
+                \begin{split}
+                \begin{aligned}
+                    r \lor \neg p \to \neg p \\
+                    1 \lor \neg 1 \to \neg 1 \\
+                    1 \lor 0 \to 0 \\
+                    1 \to 0 \\
+                    0 \\
+                    \therefore r \lor \neg p \to \neg p = 0
+                \end{aligned}
+                \end{split}
+                \end{equation}
+    \clearpage
+    \item [b])\\
+        \begin{tikzpicture}[nodes={draw,circle},align=center]
+            \node {$\neg$}
+            child {node {$\to$}
+                child {node {$\neg$}
+                    child {node {$\lor$}
+                        child {node {$p$}}
+                        child {node {$\land$}
+                            child {node {$q$}}
+                            child {node {$\neg$}
+                                child {node {$p$}}
+                            }
+                        }
                     }
-                    child {node {T}
-                    child {node {T}
-                      child {node {F}  child {node {8}} }
-                      }
-                    child {node {*}}
-                    child {node {F} child {node {2}}}
-                    };
-                \end{tikzpicture}
-        \end{enumerate}
+                }
+                child {node {$r$}}
+            };
+        \end{tikzpicture}
+
+        El árbol se reescribe como $\neg (\neg (p \lor (q \land \neg p)) \to r)$
+        y sustituyendo por los valores de $p$, $q$ y $r$:
+
+            \begin{equation}
+            \begin{split}
+            \begin{aligned}
+                \neg (\neg (p \lor (q \land \neg p)) \to r) \\
+                \neg (\neg (1 \lor (0 \land \neg 1)) \to 1) \\
+                \neg (\neg (1 \lor (0 \land 0)) \to 1) \\
+                \neg (\neg (1 \lor 0) \to 1) \\
+                \neg (\neg (1) \to 1) \\
+                \neg (0 \to 1) \\
+                \neg (1) \\
+                0 \\
+                \therefore \neg (\neg (p \lor (q \land \neg p)) \to r) = 0
+            \end{aligned}
+            \end{split}
+            \end{equation}
+    \end{enumerate}
+
+    \clearpage
+
+    \item Utilizando equivalencias lógicas, decide si la siguiente fórmula es
+    una tautología, contradicción o contingencia:
+        \begin{equation}
+        \begin{split}
+        \begin{aligned}
+            (p \to q) \to (r \to s) \to p \land r \to q \land s
+        \end{aligned}
+        \end{split}
+        \end{equation}
+
+    Aplicamos jerarquía de operaciones para agregar paréntesis a la operación:
+        \begin{equation}
+        \begin{split}
+        \begin{aligned}
+            (p \to q) \to (r \to s) \to p \land r \to q \land s \\
+            (p \to q) \to (r \to s) \to (p \land r) \to (q \land s) \\
+            (p \to q) \to (r \to s) \to ((p \land r) \to (q \land s)) \\
+            (p \to q) \to ((r \to s) \to ((p \land r) \to (q \land s)))
+        \end{aligned}
+        \end{split}
+        \end{equation}
+    Usando las equivalencias:
+        \begin{equation}
+        \begin{split}
+        \begin{aligned}
+            (p \to q) \to ((r \to s) \to ((p \land r) \to (q \land s))) \\
+            (p \to q) \to ((r \to s) \to (\neg(p \land r) \lor (q \land s))) \\
+            (p \to q) \to ((r \to s) \to ((\neg p \lor \neg r) \lor (q \land s))) \\
+            (p \to q) \to (\neg (r \to s) \lor ((\neg p \lor \neg r) \lor (q \land s))) \\
+            (p \to q) \to (\neg (\neg r \lor s) \lor ((\neg p \lor \neg r) \lor (q \land s))) \\
+            (p \to q) \to ((r \land \neg s) \lor ((\neg p \lor \neg r) \lor (q \land s))) \\
+            (p \to q) \to ((r \land \neg s) \lor (\neg p \lor \neg r) \lor (q \land s)) \\
+            (\neg p \lor q) \to ((r \land \neg s) \lor (\neg p \lor \neg r) \lor (q \land s)) \\
+            \neg (\neg p \lor q) \lor ((r \land \neg s) \lor (\neg p \lor \neg r) \lor (q \land s)) \\
+            (p \land \neg q) \lor ((r \land \neg s) \lor (\neg p \lor \neg r) \lor (q \land s)) \\
+            (p \land \neg q) \lor (r \land \neg s) \lor (\neg p \lor \neg r) \lor (q \land s) \\
+            (p \land \neg q) \lor (r \land \neg s) \lor \neg p \lor \neg r \lor (q \land s) \\
+            (\neg p \lor (p \land \neg q)) \lor (\neg r \lor (r \land \neg s)) \lor (q \land s) \\
+            ((\neg p \lor p) \land (\neg p \lor \neg q)) \lor (\neg r \lor (r \land \neg s)) \lor (q \land s) \\
+            (1 \land (\neg p \lor \neg q)) \lor (\neg r \lor (r \land \neg s)) \lor (q \land s) \\
+            (1 \land (\neg p \lor \neg q)) \lor ((\neg r \lor r) \land (\neg r \lor \neg s)) \lor (q \land s) \\
+            (1 \land (\neg p \lor \neg q)) \lor (1 \land (\neg r \lor \neg s)) \lor (q \land s) \\
+            (\neg p \lor \neg q) \lor (\neg r \lor \neg s) \lor (q \land s) \\
+            \neg p \lor \neg q \lor \neg r \lor \neg s \lor (q \land s) \\
+            \neg p \lor \neg q \lor \neg r \lor (\neg s \lor (q \land s)) \\
+            \neg p \lor \neg q \lor \neg r \lor ((\neg s \lor s) \land(\neg s \lor q)) \\
+            \neg p \lor \neg q \lor \neg r \lor (1 \land(\neg s \lor q)) \\
+            \neg p \lor \neg q \lor \neg r \lor (\neg s \lor q) \\
+            \neg p \lor \neg q \lor \neg r \lor \neg s \lor q \\
+            \neg p \lor \neg r \lor \neg s \lor (q \lor \neg q) \\
+            \neg p \lor \neg r \lor \neg s \lor 1 \\
+            1 \\
+            \therefore \text{la fórmula es tautología}
+        \end{aligned}
+        \end{split}
+        \end{equation}
 \end{enumerate}
 
 \end{document}
