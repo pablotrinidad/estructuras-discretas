@@ -1,0 +1,119 @@
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\usepackage[most]{tcolorbox}
+
+\usepackage{mathtools}
+\usepackage{tikz}
+\usetikzlibrary{trees,positioning}
+
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+
+    {\scshape\LARGE Universidad Nacional Autónoma de México \par}
+
+    \vspace{1cm}
+    {\scshape\Large Facultad de Ciencias\par}
+    \vspace{1.5cm}
+
+    \begin{center}
+        \includegraphics[scale=.1]{../../assets/img/logo.png}
+    \end{center}
+
+    \vspace{.8 cm}
+
+    {\LARGE Tarea semanal 03: \par}
+    {\huge\bfseries Lógica proposicional \par}
+
+    \vspace{0.5cm}
+    {\large\itshape Pablo A. Trinidad Paz\par}
+    419004279
+
+    \vfill
+
+    Trabajo presentado como parte del curso de \textbf{Estructuras Discretas}
+    impartido por la profesora \textbf{Pilar Selene Linares Arévalo}. \par
+    \vspace{0.1cm}
+    {\large 6 de Septiembre de 2018\par}
+\end{titlepage}
+
+\begin{enumerate}
+    \item Decide cuál de los siguientes incisos corresponden a un argumento lógico y
+    cuál no. Para el inciso que sí es argumento lógico, identifica sus premisas y
+    conclusión. Traduce el argumento a lógica proposicional.
+
+        \begin{enumerate}
+            \item \textit{
+                Durante mucho tiempo, los astrónomos sospecharon que Europa, una
+                de las lunas de Júpiter, albergaba un océano debajo de su superficie
+                cubierta de hielo. Tenían razón. La técnica para demostrar la
+                existencia del océano europeo ahora ha sido empleada para detectar
+                un océano en otro satélite de Júpiter, Ganímides, según un trabajo
+                anunciado en el reciente encuentro de la Unión de Geofísica Americana
+                en San Francisco, California.
+            }\\
+
+            \textbf{No es un argumeto lógico} ya que no existe ninguna sucesión de
+            hipótesis con la intensión de validar una conclusión.
+
+            \item \textit{
+                La tierra se está calentando. Hay dos principales razones. La primera
+                es que la quema de carbón, petróleo y gas natural han aumentado
+                considerablemente el dióxido de carbono en la atmósfera. Además, el
+                dióxido de carbono retiene el calor. La segunda es que los
+                clorofluorocarbonos, que se utilizan en los aparatos de aire
+                acondicionado y los refrigeradores, atacan la capa de ozono, en
+                consecuencia la tierra queda expuesta a los rayos ultravioleta del sol.
+            }\\
+
+            \textbf{Premisas:}
+            \begin{itemize}
+                \item $p = $ La tierra se está calentando.
+                \item $q = $ La quema de carbón, petróleo y gas natural han aumentado
+                considerablemente el dióxido de carbono en la atmósfera.
+                \item $r = $ El dióxido retiene el calor.
+                \item $s = $ Los fluorocarbonos, ..., atacan la capa de ozono.
+                \item $t = $ La tierra queda expuesta a los rayos ultravioleta del sol
+            \end{itemize}
+
+            \medskip
+
+            \textbf{Desarrollo del argumento:} \\
+            Sabemos que la tierra se está calentando es producto de dos cosas,
+            por lo tanto podemos decir:
+                \begin{equation} \begin{split}
+                    P \land Q \implies p
+                \end{split} \end{equation}
+
+            Y sabemos que la primera es que existe $q$ pero también que más dióxido
+            de carbono implica la retención de calor ($r$), es decir:
+                \begin{equation} \begin{split}
+                    P = q \land r \\
+                    \text{y reemplzando en 1}: \\
+                    (q \land r) \land Q \implies p
+                \end{split} \end{equation}
+
+            Por último sabemos que $Q$ es la segunda razón de que la tierra se caliente
+            ($p$) y esta a su vez se debe a que los fluorocarbonos atacan la capa de ozono
+            ($s$) y en consecuencia la tierra queda expuesta a los rayos del sol ($t$), es decir:
+                \begin{equation} \begin{split}
+                    Q = s \implies t \\
+                    \text{y reemplzando en 2}: \\
+                    (q \land r) \land (s \implies t) \implies p \\
+                    \therefore \text{el argumento se traduce a: } \\
+                    \tcboxmath{(q \land r) \land (s \implies t) \implies p}
+                \end{split} \end{equation}
+        \end{enumerate}
+\end{enumerate}
+
+\end{document}
