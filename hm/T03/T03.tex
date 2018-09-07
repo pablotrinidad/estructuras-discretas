@@ -114,6 +114,39 @@
                     \tcboxmath{(q \land r) \land (s \implies t) \implies p}
                 \end{split} \end{equation}
         \end{enumerate}
+
+    \clearpage
+    \item Sea $\varphi$ una fórmula que es una contradicción. Construye tres fórmulas
+    diferentes que sean tautología y que involucren a $\varphi$.
+        \begin{enumerate}
+            \item [1.-]
+                \begin{equation*} \begin{split}
+                    \tcboxmath{\varphi \lor \neg \varphi} \\
+                    \text{Desarrollo:} \\
+                    0 \lor (\neg 0) \\
+                    0 \lor 1 \\
+                    1 \\
+                \end{split} \end{equation*}
+
+            \item [2.-]
+                \begin{equation*} \begin{split}
+                    \tcboxmath{\neg(\varphi \land \varphi)} \\
+                    \text{Desarrollo:} \\
+                    \neg (0 \land 0) \\
+                    \neg (0) \\
+                    1 \\
+                \end{split} \end{equation*}
+
+            \item [3.-]
+                \begin{equation*} \begin{split}
+                    \tcboxmath{\neg(\varphi \land \neg \varphi)} \\
+                    \text{Desarrollo:} \\
+                    \neg(0 \land (\neg 0)) \\
+                    \neg(0 \land 1) \\
+                    \neg(0) \\
+                    1 \\
+                \end{split} \end{equation*}
+        \end{enumerate}
 \end{enumerate}
 
 \end{document}
