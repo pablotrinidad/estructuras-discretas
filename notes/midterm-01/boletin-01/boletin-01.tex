@@ -1,0 +1,142 @@
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\usepackage[most]{tcolorbox}
+
+\usepackage{multicol}
+
+\usepackage{mathtools}
+\usepackage{forest}
+\usepackage{tikz}
+\usetikzlibrary{trees,positioning}
+
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+
+    {\scshape\LARGE Universidad Nacional Autónoma de México \par}
+
+    \vspace{1cm}
+    {\scshape\Large Facultad de Ciencias\par}
+    \vspace{1.5cm}
+
+    \begin{center}
+        \includegraphics[scale=.1]{../../../assets/img/logo.png}
+    \end{center}
+
+    \vspace{.8 cm}
+
+    {\LARGE Boletín de Ejercicios 01: \par}
+    {\huge\bfseries Primer parcial \par}
+
+    \vspace{0.5cm}
+    {\large\itshape Pablo A. Trinidad Paz\par}
+    419004279
+
+    \vfill
+
+    Trabajo presentado como parte del curso de \textbf{Estructuras Discretas}
+    impartido por la profesora \textbf{Pilar Selene Linares Arévalo}. \par
+    \vspace{0.1cm}
+    {\large 12 de Septiembre de 2018\par}
+\end{titlepage}
+
+
+\begin{enumerate}
+    \item Considera la siguiente gramática
+        \begin{equation*} \begin{split} \begin{aligned}
+            &S :: = E \\
+            &E :: = \downarrow E \uparrow \\
+            &E :: = \bigcirc E \\
+            &E :: = \uparrow \uparrow E \\
+            &E :: = \square \alpha \\
+            &E :: = \delta
+        \end{aligned} \end{split} \end{equation*}
+
+        \begin{enumerate}
+            \item Construye una derivación correspondiente a la cadena
+                  $\uparrow \uparrow \downarrow \bigcirc \uparrow \uparrow \square \alpha \uparrow$.
+
+                \begin{center}
+                    \begin{tikzpicture}[nodes={draw,circle}]
+                        \node {$S$}
+                        child {node {$E$}
+                            child {node {$\uparrow \uparrow$}}
+                            child {node {$E$}
+                                child {node {$\downarrow$}}
+                                child {node {$E$}
+                                    child {node {$\bigcirc$}}
+                                    child {node {$E$}
+                                        child {node {$\uparrow \uparrow$}}
+                                        child {node {$E$}
+                                            child {node {$\square\alpha$}}
+                                        }
+                                    }
+                                }
+                                child {node {$\uparrow$}}
+                            }
+                        };
+                    \end{tikzpicture}
+                \end{center}
+
+            \item Da el árbol que corresponde a la expresión $\bigcirc \downarrow \square \alpha \uparrow$.
+                \begin{center}
+                    \begin{tikzpicture}[nodes={draw, circle}]
+                        \node {$S$}
+                        child {node {$E$}
+                            child {node {$\bigcirc$}}
+                            child {node {$E$}
+                                child {node {$\downarrow$}}
+                                child {node {$E$}
+                                    child {node {$\square\alpha$}}
+                                }
+                                child {node {$\uparrow$}}
+                            }
+                        };
+                    \end{tikzpicture}
+                \end{center}
+
+            \clearpage
+            \item ¿La cadena $\uparrow \uparrow \uparrow \bigcirc \delta$ está bien formada?
+                  Justifique su respuesta.
+                \begin{multicols}{2}
+                    \begin{center}
+                        \begin{tikzpicture}[nodes={draw, circle}]
+                            \node {$S$}
+                                child {node {$E$}
+                                    child {node {$\uparrow \uparrow$}}
+                                    child {node {$E$}}
+                            };
+                        \end{tikzpicture}
+                    \end{center}
+                    \begin{center}
+                        \begin{tikzpicture}[nodes={draw, circle}]
+                            \node {$S$}
+                                child {node {$E$}
+                                    child {node {$\uparrow \uparrow$}}
+                                    child {node {$E$}
+                                        child {node {$\bigcirc$}}
+                                        child {node {$E$}
+                                            child {node {$\delta$}}
+                                        }
+                                    }
+                            };
+                        \end{tikzpicture}
+                    \end{center}
+                \end{multicols}
+                La cadena no está bien formulada ya que a partir de los únicos dos posibles
+                árboles de derivación fue imposible llegar a la cadena final.
+        \end{enumerate}
+\end{enumerate}
+
+
+\end{document}

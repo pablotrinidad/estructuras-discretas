@@ -11,6 +11,7 @@ El contenido de los folders es el siguiente:
 * **`lab`**: Ejercicios realizados dentro del laboratorio
 * **`psets`**: Prácticas de laboratorio
 * **`assets`**: Assets usados por otros archivos, como imágenes, audio, etc.
+* **`notes`**: Notas y respuesta de guías.
 
 ## Instructores
 
