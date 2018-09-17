@@ -88,7 +88,26 @@
                     \tcboxmath{\therefore \Gamma_1 \text{ es \textbf{Insatisfacible}}}
                 \end{split} \end{equation*}
 
-            \item $\Gamma_2 = \{ \}$
+            \clearpage
+            \item $\Gamma_2 = \{p, \neg p \lor q, \neg p \lor r\}$
+
+                \begin{equation*} \begin{split}
+                    \text{Para probar si el conjunto de fórmulas } \Gamma_2 \\
+                    \text{es satisfacible podemos asumirlo y tratar de encontrar} \\
+                    \text{los estados de cada variable proposicional.} \\
+                \end{split} \end{equation*}
+                \begin{equation*} \begin{split} \begin{aligned}
+                    \text{1) }&\mathcal{I}(\Gamma_2) = 1 \\
+                    \text{2) }&\mathcal{I}(p) = 1 \\
+                    \text{3) }&\mathcal{I}(\neg p \lor q) = 1 \\
+                    \text{4) }&\mathcal{I}(\neg p \lor r) = 1 \\
+                    \text{5) }&\mathcal{I}(q) = 1 \text{ (por \textbf{2})}\\
+                    \text{6) }&\mathcal{I}(r) = 1 \text{ (por \textbf{2})}\\
+                \end{aligned} \end{split} \end{equation*}
+                \begin{equation*} \begin{split}
+                    \therefore \exists I \, | \, I(P) = 1 \forall P \in \Gamma_2 \\
+                    \tcboxmath{\therefore \Gamma_2 \text{ es \textbf{Satisfacible} (En el estado anterior)}}
+                \end{split} \end{equation*}
         \end{itemize}
 \end{enumerate}
 
