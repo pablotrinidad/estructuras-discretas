@@ -108,7 +108,40 @@
                     \therefore \exists I \, | \, I(P) = 1 \forall P \in \Gamma_2 \\
                     \tcboxmath{\therefore \Gamma_2 \text{ es \textbf{Satisfacible} (En el estado anterior)}}
                 \end{split} \end{equation*}
+
         \end{itemize}
+
+        \item Decide si las siguientes afirmaciones son ciertas o no.
+        Si lo son, justifica; Si no lo son, da un contraejemplo.
+
+            \begin{enumerate}
+                \item \textit{Si $\{P_1,P_2,...,P_n\}/\therefore C$ es un argumento
+                incorrecto, entonces el conjunto $\{P_1,P_2,...,P_n,C\}$ es insatisfacible.}
+
+                    \begin{equation*} \begin{split}
+                        \text{Si } \{P_1,P_2,...,P_n\}/\therefore C \text{ es un argumento incorrecto,} \\
+                        \text{quiere decir que la fórmula } \varphi = P_1 \land P_2 \land P_3 \land ... \land P_n \rightarrow C \\
+                        \text{no es tautología pero no limita a que sí existan} \\
+                        \text{algunos estados que sean modelo,} \\
+                        \text{por lo tanto el conjunto de fórmulas } \{P_1,P_2,...,P_n,C\} \\
+                        \tcboxmath{\text{\textbf{NO} necesariamente es insatisfacible}}
+                    \end{split} \end{equation*}
+                    \bigskip
+                    \begin{equation*} \begin{split}
+                        \text{\textbf{CONTRAEJEMPLO:}} \\
+                         \{p \lor q\} / \therefore p \land q \text{ es un argumento incorrecto} \\
+                        \text{ porque se evalua en 0 cuando } p = 1 \text{ y } q = 0\\
+                        p \lor q \rightarrow p \land q \\
+                        1 \lor 0 \rightarrow 1 \land 0 \\
+                        1 \rightarrow 0 = 0 \\
+                        \text{Pero el conjunto de fórmulas } \varphi = \{ p \lor q , p \land q \} \\
+                        \text{es satisfacible para el estado: } p = 1 \text{ y } q = 1\\
+                        \mathcal{I}(1 \lor 1) = 1 \, , \mathcal{I}(1 \land 1) = 1 \\
+                        \therefore \exists I \, | \, I(P) = 1 \forall P \in \varphi \\
+                        \tcboxmath{\therefore \text{La afirmación anterior (a) \textbf{es falsa}.}} \\
+                    \end{split} \end{equation*}
+
+            \end{enumerate}
 \end{enumerate}
 
 \end{document}
