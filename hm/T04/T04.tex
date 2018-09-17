@@ -141,6 +141,32 @@
                         \tcboxmath{\therefore \text{La afirmación anterior (a) \textbf{es falsa}.}} \\
                     \end{split} \end{equation*}
 
+                \item \textit{Cualquier argumento incorrecto se puede convertir en uno válido agragando
+                una hipótesis extra.}
+
+                    \begin{itemize}
+                        \item Si $\{H_1,H_2,...,H_n\}/\therefore C$ es un argumento incorrecto, quiere
+                        decir que existe un estado de las variables que evalua la implicación a falso,
+                        es decir, $H_1 \land H_2 \land ... \land H_n \rightarrow C = 0$. También, sabemos
+                        que una implicación sólamente es falsa cuando el precedente es verdadero y el
+                        consecuente es falso ($1 \rightarrow 0$). \\ Sabiendo esto, si agregamos una nueva
+                        hipótesis que evalue la conjunción a falso, la implicación se vuelve verdadera
+                        porque $ 0 \rightarrow 0 = 1$.
+
+                        \begin{equation*} \begin{split}
+                            \text{i.e: } \\
+                            H_1 \land H_2 \land ... \land H_n \rightarrow C = 0 \\
+                            H_1 \land H_2 \land ... \land H_n = 1 \\
+                            C = 0 \\
+                            1 \rightarrow 0  = 0 \\
+                            \text{Si agregamos una nueva hipótesis } P \text{ donde $P = 0$,} \\
+                            \text{entonces la nueva conjunción} H_1 \land H_2 \land ... \land H_n \land P = 0 \\
+                            \text{dando como resultado una implicación del siguiente tipo: } 0 \rightarrow 0 \\
+                            \text{la cual es verdadera} \\
+                            \tcboxmath{\therefore \text{La afirmación anterior (a) \textbf{es verdadera}.}}
+                        \end{split} \end{equation*}
+                    \end{itemize}
+
             \end{enumerate}
 \end{enumerate}
 
