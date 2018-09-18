@@ -136,6 +136,94 @@
                 La cadena no está bien formulada ya que a partir de los únicos dos posibles
                 árboles de derivación fue imposible llegar a la cadena final.
         \end{enumerate}
+
+    \item Sea $p$, $q$ y $r$ las proposiciones con el siguiente significado:\\
+        \begin{itemize}
+            \item $p$: Se han visto osos pardos en la zona.
+            \item $q$: Acampar en esta zona es seguro.
+            \item $r$: La luna se ve gigante esta noche.
+        \end{itemize}
+        Escribe los enunciados en lógica proposicional utilizando únicamente
+        $p$, $q$ y $r$ y los conectivos lógicos.
+
+        \begin{enumerate}
+            \item La luna se ve gigante esta noche, pero se han visto osos
+            pardos en la zona.
+                \begin{equation*} \begin{split}
+                    \tcboxmath{r \land p}
+                \end{split} \end{equation*}
+
+            \item No se han visto osos pardos en la zona y acampar en esta
+            zona es seguro pero la luna se ve gigante esta noche.
+                \begin{equation*} \begin{split}
+                    \tcboxmath{\neg p \land q \land r}
+                \end{split} \end{equation*}
+
+            \item Si la luna se ve gigante esta noche, entonces acampar en esta zona
+            es seguro si y sólo si no se han visto osos pardos en la zona.
+                \begin{equation*} \begin{split}
+                    \tcboxmath{(r \rightarrow q) \leftrightarrow \neg p}
+                \end{split} \end{equation*}
+
+            \item Para que acampar en esta zona sea seguro, es necesario que la luna
+            se vea gigante esta noche y que no se hayan visto osos pardos en la zona.
+                \begin{equation*} \begin{split}
+                    \tcboxmath{q \rightarrow r \land \neg p}
+                \end{split} \end{equation*}
+        \end{enumerate}
+
+    \clearpage
+    \item Utilizando tablas de verdad, decide si las siguientes expresiones son
+        tautologías, contradicciones o contingencias:
+        \begin{enumerate}
+            \item $\neg p \land (p \lor q) \rightarrow q \rightarrow \neg p$
+                \begin{equation*} \begin{split}
+                    \varphi = \neg p \land (p \lor q) \rightarrow q \rightarrow \neg p \\
+                    \Rightarrow \varphi = \neg p \land (p \lor q) \rightarrow (q \rightarrow \neg p) \\
+                \end{split} \end{equation*}
+                \begin{center}
+                    \includegraphics[scale=.5]{../assets/img/3-a.png}
+                \end{center}
+                \begin{equation*} \begin{split}
+                    \tcboxmath{\therefore \, \,  \vDash \varphi}
+                \end{split} \end{equation*}
+
+            \item $(p \lor q) \land (p \rightarrow r) \land (q \rightarrow r) \rightarrow r$
+                \begin{equation*} \begin{split}
+                    \alpha = (p \lor q) \land (p \rightarrow r) \land (q \rightarrow r) \rightarrow r \\
+                \end{split} \end{equation*}
+                \begin{center}
+                    \includegraphics[scale=.5]{../assets/img/3-b.png}
+                \end{center}
+                \begin{equation*} \begin{split}
+                    \tcboxmath{\therefore \, \,  \vDash \alpha}
+                \end{split} \end{equation*}
+        \end{enumerate}
+
+    \clearpage
+    \item Utilizando las leyes de equivalencia de la lógica proposicional,
+        muestra que se cumplen las siguientes equivalencias
+
+        \begin{enumerate}
+            \item $\neg r \rightarrow b \land \neg b \equiv r$
+                \begin{equation} \begin{split} \begin{aligned}
+                    \neg r \rightarrow b \land \neg b &\equiv r \\
+                    \neg r \rightarrow (b \land \neg b) &\equiv r \\
+                    \neg r \rightarrow 0 &\equiv r \\
+                    \neg (\neg r) \lor 0 &\equiv r \\
+                    r \lor 0 &\equiv r \\
+                    \tcboxmath{r \equiv r} \\
+                \end{aligned} \end{split} \end{equation}
+
+            \item $(p \rightarrow q) \land (p \rightarrow \neg q) \equiv \neg p$
+                \begin{equation} \begin{split} \begin{aligned}
+                    (p \rightarrow q) \land (p \rightarrow \neg q) &\equiv \neg p \\
+                    (\neg p \lor q) \land (\neg p \lor \neg q) &\equiv \neg p \\
+                    \neg p \lor (q \land \neg q) &\equiv \neg p \\
+                    \neg p \lor 0 &\equiv \neg p \\
+                    \tcboxmath{\neg p \equiv \neg p} \\
+                \end{aligned} \end{split} \end{equation}
+        \end{enumerate}
 \end{enumerate}
 
 
