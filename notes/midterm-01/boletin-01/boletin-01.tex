@@ -206,23 +206,85 @@
 
         \begin{enumerate}
             \item $\neg r \rightarrow b \land \neg b \equiv r$
-                \begin{equation} \begin{split} \begin{aligned}
+                \begin{equation*} \begin{split} \begin{aligned}
                     \neg r \rightarrow b \land \neg b &\equiv r \\
                     \neg r \rightarrow (b \land \neg b) &\equiv r \\
                     \neg r \rightarrow 0 &\equiv r \\
                     \neg (\neg r) \lor 0 &\equiv r \\
                     r \lor 0 &\equiv r \\
                     \tcboxmath{r \equiv r} \\
-                \end{aligned} \end{split} \end{equation}
+                \end{aligned} \end{split} \end{equation*}
 
             \item $(p \rightarrow q) \land (p \rightarrow \neg q) \equiv \neg p$
-                \begin{equation} \begin{split} \begin{aligned}
+                \begin{equation*} \begin{split} \begin{aligned}
                     (p \rightarrow q) \land (p \rightarrow \neg q) &\equiv \neg p \\
                     (\neg p \lor q) \land (\neg p \lor \neg q) &\equiv \neg p \\
                     \neg p \lor (q \land \neg q) &\equiv \neg p \\
                     \neg p \lor 0 &\equiv \neg p \\
                     \tcboxmath{\neg p \equiv \neg p} \\
-                \end{aligned} \end{split} \end{equation}
+                \end{aligned} \end{split} \end{equation*}
+
+            \item $\neg (p \leftrightarrow q) \equiv \neg p \leftrightarrow q$
+                \begin{equation*} \begin{split} \begin{aligned}
+                    % 1
+                    \neg (p \leftrightarrow q)
+                        &\equiv
+                    \neg p \leftrightarrow q \\
+                    % 2
+                    \neg ((p \land q) \lor (\neg p \land \neg q))
+                        &\equiv
+                    (\neg p \land q) \lor (p \land \neg q) \\
+                    % 3
+                    \neg(p \land q) \land \neg(\neg p \land \neg q)
+                        &\equiv
+                    (\neg p \land q) \lor (p \land \neg q) \\
+                    % 4
+                    (\neg p \lor \neg q) \land (p \lor q)
+                        &\equiv
+                    (\neg p \land q) \lor (p \land \neg q) \\
+                    % 5
+                    (\neg p \land p) \lor (p \land \neg q) \lor (\neg p \land q) \lor (\neg q \land q)
+                        &\equiv
+                    (\neg p \land q) \lor (p \land \neg q) \\
+                    % 6
+                    0 \lor (p \land \neg q) \lor (\neg p \land q) \lor 0
+                        &\equiv
+                    (\neg p \land q) \lor (p \land \neg q) \\
+                    % 7
+                    (\neg p \land q) \lor (p \land \neg q)
+                        &\equiv
+                    (\neg p \land q) \lor (p \land \neg q) \\
+                    \tcboxmath{\neg p \leftrightarrow q \equiv \neg p \leftrightarrow q} \\
+                \end{aligned} \end{split} \end{equation*}
+
+            \item $p \leftrightarrow q \equiv (p \land q) \lor (\neg p \land \neg q)$
+                \begin{equation*} \begin{split} \begin{aligned}
+                    % 1
+                    p \leftrightarrow q
+                        &\equiv
+                    (p \land q) \lor (\neg p \land \neg q) \\
+                    % 2
+                    (p \rightarrow q) \land (q \rightarrow p)
+                        &\equiv
+                    (p \land q) \lor (\neg p \land \neg q) \\
+                    % 3
+                    (\neg p \lor q) \land (\neg q \lor p)
+                        &\equiv
+                    (p \land q) \lor (\neg p \land \neg q) \\
+                    % 4
+                    (\neg p \land \neg q) \lor (\neg p \land p) \lor (q \land \neg q) \lor (q \land p)
+                        &\equiv
+                    (p \land q) \lor (\neg p \land \neg q) \\
+                    % 5
+                    (\neg p \land \neg q) \lor 0 \lor 0 \lor (q \land p)
+                        &\equiv
+                    (p \land q) \lor (\neg p \land \neg q) \\
+                    \tcboxmath{
+                        (p \land q) \lor (\neg p \land \neg q)
+                            \equiv (p \land q)
+                        \lor (\neg p \land \neg q)
+                    }
+                \end{aligned} \end{split} \end{equation*}
         \end{enumerate}
 \end{enumerate}
 
