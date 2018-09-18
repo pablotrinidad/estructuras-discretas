@@ -325,6 +325,24 @@
                     &\tcboxmath{\therefore \mathcal{I} \vDash \phi}
                 \end{aligned} \end{split} \end{equation*}
         \end{enumerate}
+
+    \clearpage
+    \item Utilizando interpretaciones, comprobar si se cumplen las afirmaciones:
+
+        \begin{enumerate}
+            \item $\{p \land q\} \vDash p \rightarrow q$
+                \begin{equation*} \begin{split} \begin{aligned}
+                    \text{Sabemos que } \Gamma \vDash A \rightarrow B
+                        \text{ si y solo si } \Gamma \cup \{\neg A\} \text{ es insatisfacible.} \\
+                    \text{por lo que podemos definir lo anterior como: } \{p \land q, p\} \vDash q\\
+                \end{aligned} \end{split} \end{equation*}
+                \begin{equation*} \begin{split} \begin{aligned}
+                    &\text{\footnotesize{1)} } \mathcal{I}(p \land q) = 1 \\
+                    &\text{\footnotesize{2)} } \mathcal{I}(p) = 1 \\
+                    &\text{\footnotesize{2)} } \mathcal{I}(q) = 1 \text{ (por \textbf{1} y \textbf{2})}\\
+                    &\tcboxmath{\therefore \{p \land q\} \vDash p \rightarrow q}
+                \end{aligned} \end{split} \end{equation*}
+        \end{enumerate}
 \end{enumerate}
 
 
