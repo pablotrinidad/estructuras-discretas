@@ -286,6 +286,45 @@
                     }
                 \end{aligned} \end{split} \end{equation*}
         \end{enumerate}
+
+    \clearpage
+    \item Decidir para cada caso si $\mathcal{I} \vDash \phi$
+        \begin{enumerate}
+            \item $\phi = (p \rightarrow q) \land \neg q \rightarrow r$ con
+                $\mathcal{I}(p) = 1$, $\mathcal{I}(q) = 1$ y $\mathcal{I}(r) = 0$
+                \begin{equation*} \begin{split} \begin{aligned}
+                    \phi &= (p \rightarrow q) \land \neg q \rightarrow r \\
+                    \phi &= ((p \rightarrow q) \land \neg q) \rightarrow r \\
+                    \phi &= ((1 \rightarrow 1) \land \neg 1) \rightarrow 0 \\
+                    \phi &= (1 \land 0) \rightarrow 0 \\
+                    \phi &= 0 \rightarrow 0 \\
+                    \phi &= 1 \\
+                    &\tcboxmath{\therefore \mathcal{I} \vDash \phi}
+                \end{aligned} \end{split} \end{equation*}
+
+            \item $\phi = r \rightarrow (p \rightarrow q) \land \neg q$ con
+                $\mathcal{I}(p) = 1$, $\mathcal{I}(q) = 0$ y $\mathcal{I}(r) = 0$
+                \begin{equation*} \begin{split} \begin{aligned}
+                    \phi &= r \rightarrow (p \rightarrow q) \land \neg q \\
+                    \phi &= r \rightarrow ((p \rightarrow q) \land \neg q) \\
+                    \phi &= 0 \rightarrow ((1 \rightarrow 0) \land \neg 0) \\
+                    \phi &= 0 \rightarrow (0 \land 1) \\
+                    \phi &= 0 \rightarrow 0 \\
+                    \phi &= 1 \\
+                    &\tcboxmath{\therefore \mathcal{I} \vDash \phi}
+                \end{aligned} \end{split} \end{equation*}
+
+            \item $\phi = (r \rightarrow \neg r) \lor ((p \rightarrow q) \land \neg q)$ con
+                $\mathcal{I}(p) = 0$, $\mathcal{I}(q) = 1$ y $\mathcal{I}(r) = 0$
+                \begin{equation*} \begin{split} \begin{aligned}
+                    \phi &= (r \rightarrow \neg r) \lor ((p \rightarrow q) \land \neg q) \\
+                    \phi &= (0 \rightarrow \neg 0) \lor ((0 \rightarrow 1) \land \neg 1) \\
+                    \phi &= (0 \rightarrow 1) \lor (1 \land 0) \\
+                    \phi &= 1 \lor 0 \\
+                    \phi &= 1 \\
+                    &\tcboxmath{\therefore \mathcal{I} \vDash \phi}
+                \end{aligned} \end{split} \end{equation*}
+        \end{enumerate}
 \end{enumerate}
 
 
