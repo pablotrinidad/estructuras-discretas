@@ -1,0 +1,173 @@
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\usepackage[most]{tcolorbox}
+
+\usepackage{mathtools}
+\usepackage{tikz}
+\usetikzlibrary{trees,positioning}
+
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+
+    {\scshape\LARGE Universidad Nacional Autónoma de México \par}
+
+    \vspace{1cm}
+    {\scshape\Large Facultad de Ciencias\par}
+    \vspace{1.5cm}
+
+    \begin{center}
+        \includegraphics[scale=.1]{../../assets/img/logo.png}
+    \end{center}
+
+    \vspace{.8 cm}
+
+    {\LARGE Tarea semanal 04: \par}
+    {\huge\bfseries Análisis de Argumentos \par}
+
+    \vspace{0.5cm}
+    {\large\itshape Pablo A. Trinidad Paz\par}
+    419004279
+
+    \vfill
+
+    Trabajo presentado como parte del curso de \textbf{Estructuras Discretas}
+    impartido por la profesora \textbf{Pilar Selene Linares Arévalo}. \par
+    \vspace{0.1cm}
+    {\large 17 de Septiembre de 2018\par}
+\end{titlepage}
+
+\begin{enumerate}
+    \item Sea $\Gamma$ un conjunto de fórmulas y $\tau$ una tautología.
+    Si $\Gamma$ es insatisfacible, ¿como es $\Gamma \cup \{\tau\}$ ?
+
+        \begin{itemize}
+            \item El nuevo conjunto de fórmulas $\varphi = \Gamma \cup \{\tau\}$
+            sigue siendo insatisfacible porque para que sea satisfacible debe
+            existir una interpretación $\mathcal{I}$ tal que $\mathcal{I}(P) = 1$
+            para toda $P \in \varphi$ y aunque todos los estados de $\tau$ son modelos,
+            sabemos que no existe ningún estado de que satisfaga todas las fórmulas de
+            $\Gamma$.
+        \end{itemize}
+
+    \item Decide si los siguientes conjuntos de fórmulas son satisfacibles. Justifica.
+
+        \begin{itemize}
+            \item $\Gamma_1 = \{p \lor q \lor r, \neg p, \neg q, \neg r\}$
+
+                \begin{equation*} \begin{split}
+                    \text{Para probar si el conjunto de fórmulas } \Gamma_1 \\
+                    \text{es satisfacible podemos asumirlo y tratar de encontrar} \\
+                    \text{los estados de cada variable proposicional.} \\
+                \end{split} \end{equation*}
+                \begin{equation*} \begin{split} \begin{aligned}
+                    \text{1) }&\mathcal{I}(\Gamma_1) = 1 \\
+                    \text{2) }&\mathcal{I}(p \lor q \lor r) = 1 \\
+                    \text{3) }&\mathcal{I}(\neg p) = 1 \\
+                    \text{4) }&\mathcal{I}(\neg q) = 1 \\
+                    \text{5) }&\mathcal{I}(\neg r) = 1 \\
+                    \text{6) }&\mathcal{I}(p) = 0 \text{ (por \textbf{3})} \\
+                    \text{7) }&\mathcal{I}(q) = 0 \text{ (por \textbf{4})} \\
+                    \text{8) }&\mathcal{I}(r) = 0 \text{ (por \textbf{5})} \\
+                \end{aligned} \end{split} \end{equation*}
+                \begin{equation*} \begin{split}
+                    \text{Hemos llegado a una contradicción ya que} \\
+                    \mathcal{I}(p \lor q \lor r) \text{ no puede evaluarse a 1} \\
+                    \text{porque } p, q \text{ y } r \text{ son } 0  \\
+                    \therefore \nexists I \, | \, I(P) = 1 \forall P \in \Gamma_1 \\
+                    \tcboxmath{\therefore \Gamma_1 \text{ es \textbf{Insatisfacible}}}
+                \end{split} \end{equation*}
+
+            \clearpage
+            \item $\Gamma_2 = \{p, \neg p \lor q, \neg p \lor r\}$
+
+                \begin{equation*} \begin{split}
+                    \text{Para probar si el conjunto de fórmulas } \Gamma_2 \\
+                    \text{es satisfacible podemos asumirlo y tratar de encontrar} \\
+                    \text{los estados de cada variable proposicional.} \\
+                \end{split} \end{equation*}
+                \begin{equation*} \begin{split} \begin{aligned}
+                    \text{1) }&\mathcal{I}(\Gamma_2) = 1 \\
+                    \text{2) }&\mathcal{I}(p) = 1 \\
+                    \text{3) }&\mathcal{I}(\neg p \lor q) = 1 \\
+                    \text{4) }&\mathcal{I}(\neg p \lor r) = 1 \\
+                    \text{5) }&\mathcal{I}(q) = 1 \text{ (por \textbf{2})}\\
+                    \text{6) }&\mathcal{I}(r) = 1 \text{ (por \textbf{2})}\\
+                \end{aligned} \end{split} \end{equation*}
+                \begin{equation*} \begin{split}
+                    \therefore \exists I \, | \, I(P) = 1 \forall P \in \Gamma_2 \\
+                    \tcboxmath{\therefore \Gamma_2 \text{ es \textbf{Satisfacible} (En el estado anterior)}}
+                \end{split} \end{equation*}
+
+        \end{itemize}
+
+        \item Decide si las siguientes afirmaciones son ciertas o no.
+        Si lo son, justifica; Si no lo son, da un contraejemplo.
+
+            \begin{enumerate}
+                \item \textit{Si $\{P_1,P_2,...,P_n\}/\therefore C$ es un argumento
+                incorrecto, entonces el conjunto $\{P_1,P_2,...,P_n,C\}$ es insatisfacible.}
+
+                    \begin{equation*} \begin{split}
+                        \text{Si } \{P_1,P_2,...,P_n\}/\therefore C \text{ es un argumento incorrecto,} \\
+                        \text{quiere decir que la fórmula } \varphi = P_1 \land P_2 \land P_3 \land ... \land P_n \rightarrow C \\
+                        \text{no es tautología pero no limita a que sí existan} \\
+                        \text{algunos estados que sean modelo,} \\
+                        \text{por lo tanto el conjunto de fórmulas } \{P_1,P_2,...,P_n,C\} \\
+                        \tcboxmath{\text{\textbf{NO} necesariamente es insatisfacible}}
+                    \end{split} \end{equation*}
+                    \bigskip
+                    \begin{equation*} \begin{split}
+                        \text{\textbf{CONTRAEJEMPLO:}} \\
+                         \{p \lor q\} / \therefore p \land q \text{ es un argumento incorrecto} \\
+                        \text{ porque se evalua en 0 cuando } p = 1 \text{ y } q = 0\\
+                        p \lor q \rightarrow p \land q \\
+                        1 \lor 0 \rightarrow 1 \land 0 \\
+                        1 \rightarrow 0 = 0 \\
+                        \text{Pero el conjunto de fórmulas } \varphi = \{ p \lor q , p \land q \} \\
+                        \text{es satisfacible para el estado: } p = 1 \text{ y } q = 1\\
+                        \mathcal{I}(1 \lor 1) = 1 \, , \mathcal{I}(1 \land 1) = 1 \\
+                        \therefore \exists I \, | \, I(P) = 1 \forall P \in \varphi \\
+                        \tcboxmath{\therefore \text{La afirmación anterior (a) \textbf{es falsa}.}} \\
+                    \end{split} \end{equation*}
+
+                \item \textit{Cualquier argumento incorrecto se puede convertir en uno válido agragando
+                una hipótesis extra.}
+
+                    \begin{itemize}
+                        \item Si $\{H_1,H_2,...,H_n\}/\therefore C$ es un argumento incorrecto, quiere
+                        decir que existe un estado de las variables que evalua la implicación a falso,
+                        es decir, $H_1 \land H_2 \land ... \land H_n \rightarrow C = 0$. También, sabemos
+                        que una implicación sólamente es falsa cuando el precedente es verdadero y el
+                        consecuente es falso ($1 \rightarrow 0$). \\ Sabiendo esto, si agregamos una nueva
+                        hipótesis que evalue la conjunción a falso, la implicación se vuelve verdadera
+                        porque $ 0 \rightarrow 0 = 1$.
+
+                        \begin{equation*} \begin{split}
+                            \text{i.e: } \\
+                            H_1 \land H_2 \land ... \land H_n \rightarrow C = 0 \\
+                            H_1 \land H_2 \land ... \land H_n = 1 \\
+                            C = 0 \\
+                            1 \rightarrow 0  = 0 \\
+                            \text{Si agregamos una nueva hipótesis } P \text{ donde $P = 0$,} \\
+                            \text{entonces la nueva conjunción} H_1 \land H_2 \land ... \land H_n \land P = 0 \\
+                            \text{dando como resultado una implicación del siguiente tipo: } 0 \rightarrow 0 \\
+                            \text{la cual es verdadera} \\
+                            \tcboxmath{\therefore \text{La afirmación anterior (b) \textbf{es verdadera}.}}
+                        \end{split} \end{equation*}
+                    \end{itemize}
+
+            \end{enumerate}
+\end{enumerate}
+
+\end{document}
