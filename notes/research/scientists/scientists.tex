@@ -1,0 +1,119 @@
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\usepackage[most]{tcolorbox}
+
+\usepackage{mathtools}
+\usepackage{tikz}
+\usetikzlibrary{trees,positioning}
+
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+
+    {\scshape\LARGE Universidad Nacional Autónoma de México \par}
+
+    \vspace{1cm}
+    {\scshape\Large Facultad de Ciencias\par}
+    \vspace{1.5cm}
+
+    \begin{center}
+        \includegraphics[scale=.1]{../../../assets/img/logo.png}
+    \end{center}
+
+    \vspace{.8 cm}
+
+    {\LARGE Tarea \par}
+    {\huge\bfseries De Morgan, Boole y Shannon \par}
+
+    \vspace{0.5cm}
+    {\large\itshape Pablo A. Trinidad Paz\par}
+    419004279
+
+    \vfill
+
+    Trabajo presentado como parte del curso de \textbf{Estructuras Discretas}
+    impartido por la profesora \textbf{Pilar Selene Linares Arévalo}. \par
+    \vspace{0.1cm}
+    {\large 27 de Septiembre de 2018\par}
+\end{titlepage}
+
+\section{Augustus De Morgan}
+    \begin{itemize}
+        \item ¿Quién fue? \\
+            Fue un matemático y lógico británico que vivió durante el siglo \textit{XVII},
+            formuló las \textbf{Leyes de De Morgan} e introdujo el término de
+            \textbf{Inducción matemática}.
+
+        \item ¿Cuáles fueron sus aportaciones? \\
+            Escribió textos matemáticos como \textit{Elements of Arithmetic (1830)},
+            \textit{Penny Cyclopedia (1838)} donde acuñó el término \textit{inducción matemática},
+            \textit{Trigonometry and Double Algebra (1849)} donde le dio una interpretación
+            geométrica a los números complejos y la lógica formal, entre otros.
+
+            Es mejor conocido por la ley de Morgan la cual dice:
+                \begin{equation*} \begin{split} \begin{aligned}
+                    \neg (P \lor Q) = \neg P \land \neg Q \\
+                    \neg (P \land Q) = \neg P \lor \neg Q \\
+                \end{aligned} \end{split} \end{equation*}
+
+        \item ¿Por qué es relevante su trabajo en Ciencias de la Computación? \\
+
+            Por su trabajo junto con George Boole en los fundamentos de la lógica
+            simbólica la cuál está muy relacionada actualmente con la semántica de
+            los lenguajes de programación. También se ha aplicada como metodología
+            para automatizar la verificación de pruebas matemáticas o incluso encontrarlas.
+    \end{itemize}
+
+\section{George Boole}
+    \begin{itemize}
+        \item ¿Quién fue? \\
+            Fue un matemático, filósofo y lógico ingés qiuen fue contemporáneo a De Morgan.
+            Es mejor conocido como el autor de \textit{The Laws of Thought} el
+            cual contiene la \textit{"Boolean algebra"}.
+        \item ¿Cuáles fueron sus aportaciones? \\
+            \textbf{Boolean algebra:} Es una rama del álgebra donde los valores
+            de las variables son valores de verdad (\textit{verdadero} y \textit{falso}).
+            La álgebra booleana trabaja con operaciones sobre estos valores como la
+            conjunción, disyunción o la negación.
+        \item ¿Por qué es relevante su trabajo en Ciencias de la Computación? \\
+            La álgebra booleana ha sido fundamental en el desarrollo de componentes
+            digitales los cuales sólamente trabajan con los valores de verdadero
+            y falso a través de una abstracción de flujo de corriente. Este mismo
+            sistema de operaciones es proveído en todos los lenguajes de programación
+            \textit{modernos}, además de que también suele ser usado en teoría de
+            conjuntos y estadística.
+    \end{itemize}
+
+\clearpage
+\section{Claude Shannon}
+    \begin{itemize}
+        \item ¿Quién fue? \\
+            Fue un matemático, ingeniero eléctrico y criptógrafo (\textit{cryptographer})
+            americano conocido como el padre de la \textbf{teoría de la información}.
+        \item ¿Cuáles fueron sus aportaciones? \\
+            Haber presentado la \textit{teoría de la información} en su publicación
+            del artículo \textit{A Mathematical Theory of Communication}. También es
+            conocido por haber fundado la teoría del diseño de circuitos digitales en 1937.
+            Cuando tenía 21 años de edad, siendo estudiante de maestría en el MIT,
+            escribió su tésis demostrando que las aplicaciones electrónicas
+            del \textit{Álgebra booleana} podían construir cualquier relación lógica y numérica.
+        \item ¿Por qué es relevante su trabajo en Ciencias de la Computación? \\
+            Su trabajo acerca de la teoría de la información estudia la cuantificación,
+            almacenamiento y comunicación de la información. En él trata de encontrar
+            límites fundamentales al procesamiento de señales y la comunicación de
+            operaciones como la \textit{compresión de datos}. Su trabajo es relevante
+            en el área porque en áreas desde la invención del \textit{compact disc}
+            hasta el plantamiento de los protocólos para el desarrollo del internet.
+    \end{itemize}
+
+\end{document}
