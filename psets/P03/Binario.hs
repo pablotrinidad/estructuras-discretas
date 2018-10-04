@@ -17,10 +17,9 @@ natToBin n
 
 -- Ejercicio 1.3
 binToNat :: Binario -> Int
-binToNat b = sum [2^e * d | (e, d) <- expPairs]
-    where digits = binDigits b
-          maxExp = length digits - 1
-          expPairs = zip [0..maxExp] digits
+binToNat BaseUno = 1
+binToNat (Cero b) = (2 * (binToNat b))
+binToNat (Uno b) = 1 + (2 * (binToNat b))
 
 -- Ejercicio 1.4
 sucesor :: Binario -> Binario
@@ -28,27 +27,8 @@ sucesor BaseUno = Cero BaseUno
 sucesor (Uno b) = Cero (sucesor b)
 sucesor (Cero b) = Uno b
 
--- ========== Auxiliary functions ==========
-
--- binDigits: Return a list with the digits contained in a Binary
---            (least significant digit first)
-binDigits :: Binario -> [Int]
-binDigits BaseUno = [1]
-binDigits (Cero b) = 0 : binDigits b
-binDigits (Uno b) = 1 : binDigits b
-
-
--- --Ejercicio 1.3
---  binToNat :: Binario -> Int
---  --Tu código va aquí
---  binToNat = error "Borra esta linea"
-
--- --Ejercicio 1.4
---  sucesor :: Binario -> Binario
---  --Tu código va aquí
---  sucesor = error "Borra esta linea"
-
--- --Ejercicio 1.5
---  bitsEncendidos :: Binario -> Int
---  --Tu código va aquí
---  bitsEncendidos = error "Borra esta linea"
+-- Ejercicio 1.5
+bitsEncendidos :: Binario -> Int
+bitsEncendidos BaseUno = 1
+bitsEncendidos (Cero b) = bitsEncendidos b
+bitsEncendidos (Uno b) = 1 + bitsEncendidos b
