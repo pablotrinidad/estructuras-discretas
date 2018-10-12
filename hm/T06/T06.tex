@@ -57,11 +57,11 @@
             \includegraphics[scale=.5]{./assets/1.png}
         \end{center}
 
-        \begin{equation} \begin{split} \begin{gathered}
+        \begin{equation*} \begin{split} \begin{gathered}
             (x_1 x_2) + (x_3 x_4) \equiv (x_1 + x_3) (x_2 + x_3) (x_2 + x_4) (x_1 + x_4) \\
             \text{Por distributibidad:} \\
             (x_1 + x_3) (x_2 + x_3) (x_2 + x_4) (x_1 + x_4) \equiv (x_1 + x_3) (x_2 + x_3) (x_2 + x_4) (x_1 + x_4)
-        \end{gathered} \end{split} \end{equation}
+        \end{gathered} \end{split} \end{equation*}
 
     \item Para cado uno de los siguientes incisos decide si la construcción de bloques
     propuesta es válida y óptima. Si no lo es, indica por qué y genera una válida o bien, mejórala
@@ -139,11 +139,36 @@
                 \end{center}
             \item Obtén las funciones booleanas para $S1$ y $S2$
 
-                \begin{equation} \begin{split} \begin{gathered}
-                S1(D, I, C) = \bar{D}I\bar{C} + \bar{D}IC + DI\bar{C} \\
-                S2(D, I, C) = D\bar{I}\bar{C} + D\bar{I}C + DIC
-                \end{gathered} \end{split} \end{equation}
+                \begin{equation*} \begin{split} \begin{gathered}
+                    S1(D, I, C) = \bar{D}I\bar{C} + \bar{D}IC + DI\bar{C} \\
+                    S2(D, I, C) = D\bar{I}\bar{C} + D\bar{I}C + DIC
+                \end{gathered} \end{split} \end{equation*}
             \item Minimiza las funciones obtenidas en $b)$ con el método de tu preferencia.
+                \begin{center}
+                    Karnaugh para $S1$ \\
+                    {\tabulinesep=1.2mm \begin{tabu} { c | c c c c }
+                        & $DI$ & $D\bar{I}$ & $\bar{D}\bar{I}$ & $\bar{D}I$ \\
+                        \hline
+                        $C$ &  &   &   & 1 \\
+                        $\bar{C}$ & 1 &   &   & 1 \\
+                    \end{tabu}}
+                \end{center}
+                \begin{equation*} \begin{split} \begin{gathered}
+                    \tcboxmath{S1(D, I, C) = I + \bar{C}I}
+                \end{gathered} \end{split} \end{equation*}
+                \clearpage
+                \begin{center}
+                    Karnaugh para $S2$ \\
+                    {\tabulinesep=1.2mm \begin{tabu} { c | c c c c }
+                        & $DI$ & $D\bar{I}$ & $\bar{D}\bar{I}$ & $\bar{D}I$ \\
+                        \hline
+                        $C$ & 1 & 1 &  & \\
+                        $\bar{C}$ &  & 1 &   &  \\
+                    \end{tabu}}
+                \end{center}
+                \begin{equation*} \begin{split} \begin{gathered}
+                    \tcboxmath{S1(D, I, C) = CD + D}
+                \end{gathered} \end{split} \end{equation*}
         \end{enumerate}
 
 \end{enumerate}
