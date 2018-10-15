@@ -66,28 +66,43 @@ interp (Conj a b) s = (interp a s) && (interp b s)
 interp (Disy a b) s = (interp a s) || (interp b s)
 interp p s = interp (eliminacion p) s
 
+-- Recibe una proposición y la evalúa en todos los estados para identificar si es tautología, contradicción o contingencia
+truthTable :: Prop -> String
+truthTable p
+    | sum r == length r = "Tautología"
+    | sum r == 0 = "Contradicción"
+    | otherwise = "Contingencia"
+        -- Evalua proposición en cada estado
+        where r = [if (interp p x) then 1 else 0 | x <- states]
+                -- Genera los estados
+                where states = stateGenerator vars
+                        -- Obtiene la lista de variables involucradas
+                        where vars = (foldl (\l e -> if e `elem` l then l else l ++ [e]) [] . varExtractor) p
+
+-- Recibe una lista de proposiciones y una conclusión. Si
+correcto :: [Prop] -> Prop -> Bool
+correcto p c = (truthTable form) == "Tautología"
+    where form = (Impl (recursiveConj p) c)
+
 -- Utilidades
 
 -- Función para extraer las variables dentro de una proposicón
-varExtractor :: Prop -> [Char]
+varExtractor :: Prop -> [String]
 varExtractor Verdadero = []
 varExtractor Falso = []
-varExtractor (Var a) = a
+varExtractor (Var a) = [a]
 varExtractor (Neg a) = varExtractor a ++ []
 varExtractor (Conj a b) = (varExtractor a) ++ (varExtractor b) ++ []
 varExtractor (Disy a b) = (varExtractor a) ++ (varExtractor b) ++ []
 varExtractor (Impl a b) = (varExtractor a) ++ (varExtractor b) ++ []
 varExtractor (Syss a b) = (varExtractor a) ++ (varExtractor b) ++ []
 
-foldl (\acc x -> if elem x acc then "" else x ++ acc) "" "hhoolamundo"
+-- Generador de estados. Recibe una lista de variables y las regresa combinadas con cada estado.
+stateGenerator :: [String] -> [Estado]
+stateGenerator [] = [[]]
+stateGenerator (x:xs) = [l ++ [(x, v)] | l <- stateGenerator xs, v <- [Verdadero, Falso]]
 
--- -- Ejercicio 2.2
--- truthTable :: Prop -> String
--- -- Aquí va tu código
--- truthTable = error "Función no definida"
-
--- -- Ejercicio 2.3
--- correcto :: [Prop] -> Prop -> Bool
--- -- Aquí va tu código
--- correcto = error "Función no definida"
-
+-- Dada una lista de fórmulas, regresa la conjunción de ellas
+recursiveConj :: [Prop] -> Prop
+recursiveConj [] = Verdadero
+recursiveConj (x:xs) = (Conj x (recursiveConj xs))
