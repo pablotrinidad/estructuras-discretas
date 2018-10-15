@@ -44,14 +44,11 @@ eliminacion p = p
 
 -- Define las reglas de De Morgan
 deMorgan :: Prop -> Prop
-deMorgan (Neg (Disy (Var a) (Var b))) = (Conj (Neg (Var a)) (Neg (Var b)))
-deMorgan (Neg (Disy (Neg (Var a)) (Neg (Var b)))) = (Conj (Var a) (Var b))
 deMorgan (Neg (Disy a b)) = (Conj (deMorgan (Neg a)) (deMorgan (Neg b)))
-deMorgan (Neg (Conj (Var a) (Var b))) = (Disy (Neg (Var a)) (Neg (Var b)))
-deMorgan (Neg (Conj (Neg (Var a)) (Neg (Var b)))) = (Disy (Var a) (Var b))
 deMorgan (Neg (Conj a b)) = (Disy (deMorgan (Neg a)) (deMorgan (Neg b)))
 deMorgan (Impl a b) = (Impl (deMorgan a) (deMorgan b))
 deMorgan (Syss a b) = (Syss (deMorgan a) (deMorgan b))
+deMorgan (Neg (Neg (Var a))) = (Var a)
 deMorgan p = p
 
 -- -- EVALUACIÓN Y ANÁLISIS SINTÁCTICO DE EXPRESIONES

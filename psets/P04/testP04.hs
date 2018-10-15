@@ -20,6 +20,8 @@ main = do
     print (P ((deMorgan (Neg (Conj (Impl (Var "P") (Var "Q")) (Syss (Var "Q") (Disy (Var "R") (Var "S")))))) == (Disy (Neg (Impl (Var "P") (Var "Q"))) (Neg (Syss (Var "Q") (Disy (Var "R") (Var "S")))))))
     print (P ((deMorgan (Impl (Conj (Impl (Var "P") (Var "Q")) (Var "P")) (Var "Q"))) == (Impl (Conj (Impl (Var "P") (Var "Q")) (Var "P")) (Var "Q"))))
     print (P ((deMorgan (Syss (Disy (Var "P") (Var "Q")) (Neg (Disy (Var "P") (Var "Q"))))) == (Syss (Disy (Var "P") (Var "Q")) (Conj (Neg (Var "P")) (Neg (Var "Q"))))))
+    print (P ((deMorgan (Neg (Disy (Neg (Var "P")) (Neg (Var "Q"))))) == (Conj (Var "P") (Var "Q"))))
+    print (P ((deMorgan (Neg (Conj (Neg (Var "P")) (Neg (Var "Q"))))) == (Disy (Var "P") (Var "Q"))))
 
     -- print "---------- Pruebas del Ejercicio 2.1; Función: interp ----------"
     -- print (P (not $ interp (Impl (Var "P") (Var "Q")) [("P", Verdadero), ("Q", Falso)]))
