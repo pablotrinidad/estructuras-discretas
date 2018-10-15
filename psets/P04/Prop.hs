@@ -69,11 +69,11 @@ interp p s = interp (eliminacion p) s
 -- Recibe una proposición y la evalúa en todos los estados para identificar si es tautología, contradicción o contingencia
 truthTable :: Prop -> String
 truthTable p
-    | sum r == length r = "Tautología"
-    | sum r == 0 = "Contradicción"
-    | otherwise = "Contingencia"
+    | and r = "Tautología"
+    | or r = "Contingencia"
+    | otherwise = "Contradicción"
         -- Evalua proposición en cada estado
-        where r = [if (interp p x) then 1 else 0 | x <- states]
+        where r = [interp p x | x <- states]
                 -- Genera los estados
                 where states = stateGenerator vars
                         -- Obtiene la lista de variables involucradas
