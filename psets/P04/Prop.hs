@@ -66,13 +66,20 @@ interp (Conj a b) s = (interp a s) && (interp b s)
 interp (Disy a b) s = (interp a s) || (interp b s)
 interp p s = interp (eliminacion p) s
 
+-- Utilidades
 
--- Dada una lista de estados y una proposición, entonctrar el valor de dicha proposicón
--- buscar :: Prop -> Estado -> Bool
--- buscar _ [] = error "El estado no incluye la proposición"
--- buscar (Var a)(x:xs)
---     | a == (fst x) = (\p -> p == Verdadero) (snd x)
---     | otherwise = buscar (Var a) xs
+-- Función para extraer las variables dentro de una proposicón
+varExtractor :: Prop -> [Char]
+varExtractor Verdadero = []
+varExtractor Falso = []
+varExtractor (Var a) = a
+varExtractor (Neg a) = varExtractor a ++ []
+varExtractor (Conj a b) = (varExtractor a) ++ (varExtractor b) ++ []
+varExtractor (Disy a b) = (varExtractor a) ++ (varExtractor b) ++ []
+varExtractor (Impl a b) = (varExtractor a) ++ (varExtractor b) ++ []
+varExtractor (Syss a b) = (varExtractor a) ++ (varExtractor b) ++ []
+
+foldl (\acc x -> if elem x acc then "" else x ++ acc) "" "hhoolamundo"
 
 -- -- Ejercicio 2.2
 -- truthTable :: Prop -> String
