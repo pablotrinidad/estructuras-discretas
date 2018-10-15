@@ -53,10 +53,26 @@ deMorgan p = p
 
 -- -- EVALUACIÓN Y ANÁLISIS SINTÁCTICO DE EXPRESIONES
 
--- -- Ejercicio 2.1
--- interp :: Prop -> Estado -> Bool
--- -- Aquí va tu código
--- interp = error "Función no definida"
+-- Evalúa una proposicón en el estado recibido
+interp :: Prop -> Estado -> Bool
+interp _ [] = error "El estado no incluye la proposición"
+interp Verdadero _ = True
+interp Falso _ = False
+interp (Var a) (x:xs)
+    | a == (fst x) = (\p -> p == Verdadero) (snd x)
+    | otherwise = interp (Var a) xs
+interp (Neg a) s = not $ interp a s
+interp (Conj a b) s = (interp a s) && (interp b s)
+interp (Disy a b) s = (interp a s) || (interp b s)
+interp p s = interp (eliminacion p) s
+
+
+-- Dada una lista de estados y una proposición, entonctrar el valor de dicha proposicón
+-- buscar :: Prop -> Estado -> Bool
+-- buscar _ [] = error "El estado no incluye la proposición"
+-- buscar (Var a)(x:xs)
+--     | a == (fst x) = (\p -> p == Verdadero) (snd x)
+--     | otherwise = buscar (Var a) xs
 
 -- -- Ejercicio 2.2
 -- truthTable :: Prop -> String
