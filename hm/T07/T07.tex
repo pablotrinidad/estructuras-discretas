@@ -70,7 +70,10 @@
     desde $s(0)$ hasta $n$. Define $g$ recursivamente. \\
 
         \textbf{Solución:}
-        \lstinputlisting[language=Haskell]{Solution.hs}
+        \begin{itemize}
+            \item $g\,  s(0) = [s(0)]$
+            \item $g\,  s(s(n)) = g(s(n)) $ ++ $[s(s(n))]$
+        \end{itemize}
 
 
 \end{enumerate}
