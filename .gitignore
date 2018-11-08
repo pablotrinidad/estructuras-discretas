@@ -244,6 +244,8 @@ pythontex-files-*/
 *.ttt
 *.fff
 
+*.s
+
 # Latexian
 TSWLatexianTemp*
 
