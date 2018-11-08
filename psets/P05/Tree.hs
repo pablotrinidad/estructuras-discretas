@@ -18,23 +18,30 @@ inorder :: BinaryTree a -> [a]
 inorder Void = []
 inorder (Node l c r) = inorder l ++ c : inorder r
 
--- preorder: Regresa una lista de los elementos del árbol obtenidos siguiendo la recursión
+-- preorder: Regresa una lista de los elementos del árbol obtenidos siguiendo la recursión (centro, izq, der)
 preorder :: BinaryTree a -> [a]
 preorder Void = []
 preorder (Node l c r) = [c] ++ (preorder l) ++ (preorder r)
 
--- --Ejercicio 2.4
--- postorder :: BinaryTree a -> [a]
--- postorder = error "Falta Implementar"
+-- postorder: Regresa una lista de los elementos del árbol obtenidos siguiendo la recursión (izq, der, centro)
+postorder :: BinaryTree a -> [a]
+postorder Void = []
+postorder (Node l c r) = (postorder l) ++ (postorder r) ++ [c]
 
--- --Ejercicio 2.5
--- maximo :: (Ord a) => BinaryTree a -> a
--- maximo = error "Falta Implementar"
+-- maximo: Regresa el elemento más grande del árbol
+maximo :: (Ord a) => BinaryTree a -> a
+maximo (Node _ e Void) = e
+maximo (Node _ c r) = maximo r
 
--- --Ejercicio 2.6
--- minimo :: (Ord a) => BinaryTree a -> a
--- minimo = error "Falta Implementar"
+-- minimo: Regresa el elemento más pequeño del árbol
+minimo :: (Ord a) => BinaryTree a -> a
+minimo (Node Void e _) = e
+minimo (Node l c _) = minimo l
 
--- --Ejercicio 2.7
--- busca :: (Ord a) => a -> BinaryTree a -> Bool
--- busca = error "Falta Implementar"
+-- busca: Regresa un booleano indicando si el elemento es parte del árbol
+busca :: (Ord a) => a -> BinaryTree a -> Bool
+busca e (Node Void c Void) = if c == e then True else False
+busca e (Node l c r)
+    | e < c = busca e l
+    | e > c = busca e r
+    | otherwise = True
