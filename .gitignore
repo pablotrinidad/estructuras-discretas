@@ -244,6 +244,8 @@ pythontex-files-*/
 *.ttt
 *.fff
 
+*.s
+
 # Latexian
 TSWLatexianTemp*
 
@@ -276,3 +278,6 @@ TSWLatexianTemp*
 
 # OS X
 .DS_Store
+
+# Unit tests compiled files
+test*
