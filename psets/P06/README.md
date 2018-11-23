@@ -36,6 +36,6 @@ The only requirement is to have the [Glasgow Haskell Compiler](https://www.haske
 and then the entry point is **`Main.hs`**, so you can compile it the way you want, I like
 using `$ runhaskell Main.hs`.
 
-## Contributos
+## Contributors
 
 * [**Pablo Trinidad (419004279)**](https://github.com/pablotrinidad)
