@@ -4,7 +4,7 @@ import Utils
 import System.Random
 
 
-
+-- Handle game logic
 game :: Int -> [(String, String)] -> IO()
 game 0 _ = do
     putStrLn "GAME OVER 😭😭😭\n"
