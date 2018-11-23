@@ -36,6 +36,15 @@ The only requirement is to have the [Glasgow Haskell Compiler](https://www.haske
 and then the entry point is **`Main.hs`**, so you can compile it the way you want, I like
 using `$ runhaskell Main.hs`.
 
+## Overview
+
+The whole game is divided in 3 modules: Main, Utils and Game, additionally the
+movies data is loaded from a `.txt` file located at `data/`.
+
+* **`Main.hs`**: Handle game execution and menu presentation
+* **`Utils.hs`**: Utilities used in the Game module for manipulating movie strings
+* **`Game.hs`**: Main game logic, also handle the loading of movies data from file
+
 ## Contributors
 
 * [**Pablo Trinidad (419004279)**](https://github.com/pablotrinidad)

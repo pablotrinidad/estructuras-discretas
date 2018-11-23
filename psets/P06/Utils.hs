@@ -2,15 +2,6 @@ module Utils where
 
 import Data.Char
 
-
--- Print list elements
-p :: (Show a) => [(a, a)] -> IO()
-p [] = return ()
-p (x:xs) = do
-    print $ x
-    p xs
-
-
 -- Remove articles like "the" from titles
 removeArticles :: String -> String
 removeArticles = foldr (\w s -> if (map toLower w) `elem` ["the", "an", "a"] then s else w ++ s) [] . words

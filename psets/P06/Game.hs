@@ -18,7 +18,7 @@ game lives movies = do
     putStrLn $ "¿Cuál es el nombre de la película? " ++ (unwords . take lives $ repeat "♥️")
     putStrLn $ snd movie
 
-    -- Uncomment for debugging!
+    -- Uncomment when debugging!
     -- putStrLn $ fst movie
 
     -- Retrieve user input and compare it with actual movie title

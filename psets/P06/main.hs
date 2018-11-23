@@ -23,6 +23,7 @@ main = do
     putStrLn "[2] Instrucciones 📜"
     putStrLn "[3] Salir ❌"
 
+    -- Handle user input
     input <- getLine
     case input of "1"     -> do startGame; main
                   "2"     -> do putStrLn gameInstructions; main
