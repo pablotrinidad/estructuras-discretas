@@ -8,6 +8,7 @@
 \usepackage{tabu}
 
 \usepackage[most]{tcolorbox}
+\usepackage{multicol}
 
 \usepackage{mathtools}
 \usepackage{tikz}
@@ -78,6 +79,84 @@
             \item \textbf{NO es transitiva} porque $\{(a, b), (b, a)\} \subset S$ pero $\{(a, a)\} \not\subset S$
             \item \textbf{NO es antisimétrica} porque $\{(a, b), (b, a)\} \subset S$ pero $a \neq b$
         \end{itemize}
+
+    \clearpage
+    \item Considera las siguientes matrices de las relaciones $R_1, R_2 \subseteq A \times A$ con $A = \{a, b, c\}$:
+        \begin{equation*} \begin{split} \begin{gathered}
+            R_1 = \begin{bmatrix}
+                1 & 0 & 1 \\
+                0 & 1 & 0 \\
+                1 & 0 & 1
+            \end{bmatrix} \qquad
+            R_2 = \begin{bmatrix}
+                1 & 0 & 0 \\
+                1 & 0 & 0 \\
+                1 & 1 & 1
+            \end{bmatrix}
+        \end{gathered} \end{split} \end{equation*} \\
+
+        \begin{enumerate}
+            \begin{multicols}{4}
+                \item Calcula $R_1 \cup R_2$
+                    \begin{equation*} \begin{split} \begin{gathered}
+                        \begin{bmatrix}
+                            1 & 0 & 1 \\
+                            1 & 1 & 0 \\
+                            1 & 1 & 1
+                        \end{bmatrix}
+                    \end{gathered} \end{split} \end{equation*}
+                \item Calcula $R_1 \cap R_2$
+                    \begin{equation*} \begin{split} \begin{gathered}
+                        \begin{bmatrix}
+                            1 & 0 & 0 \\
+                            0 & 0 & 0 \\
+                            1 & 0 & 1
+                        \end{bmatrix}
+                    \end{gathered} \end{split} \end{equation*}
+                \item Calcula $R_1 - R_2$
+                    \begin{equation*} \begin{split} \begin{gathered}
+                        \begin{bmatrix}
+                            0 & 0 & 1 \\
+                            0 & 1 & 0 \\
+                            0 & 0 & 0
+                        \end{bmatrix}
+                    \end{gathered} \end{split} \end{equation*}
+                \item Calcula $R_1^c$
+                    \begin{equation*} \begin{split} \begin{gathered}
+                        \begin{bmatrix}
+                            0 & 1 & 0 \\
+                            1 & 0 & 1 \\
+                            0 & 1 & 0
+                        \end{bmatrix}
+                    \end{gathered} \end{split} \end{equation*}
+                \item Calcula $R_2^{-1}$
+                    \begin{equation*} \begin{split} \begin{gathered}
+                        \begin{bmatrix}
+                            1 & 1 & 1 \\
+                            0 & 0 & 1 \\
+                            0 & 0 & 1
+                        \end{bmatrix}
+                    \end{gathered} \end{split} \end{equation*}
+
+                \item Calcula $R_2 \cdot R_1$
+                    \begin{equation*} \begin{split} \begin{gathered}
+                        \begin{bmatrix}
+                            1 & 0 & 1 \\
+                            1 & 0 & 1 \\
+                            1 & 1 & 1
+                        \end{bmatrix}
+                    \end{gathered} \end{split} \end{equation*}
+
+                \item Calcula $R_1 \cdot R_2$
+                    \begin{equation*} \begin{split} \begin{gathered}
+                        \begin{bmatrix}
+                            1 & 0 & 1 \\
+                            1 & 0 & 1 \\
+                            1 & 1 & 1
+                        \end{bmatrix}
+                    \end{gathered} \end{split} \end{equation*}
+            \end{multicols}
+        \end{enumerate}
 
 \end{enumerate}
 
