@@ -19,13 +19,14 @@ game lives movies = do
     putStrLn $ snd movie
 
     -- Uncomment when debugging!
-    -- putStrLn $ fst movie
+    putStrLn $ fst movie
 
     -- Retrieve user input and compare it with actual movie title
     usrGuess <- getLine
     if (unifyStr usrGuess) == (unifyStr $ fst movie)
-        then
+        then do
             putStrLn "✅\n"
+            game lives movies
         else do
             putStrLn "❌"
             game (pred lives) movies  -- Run game again with one live less
