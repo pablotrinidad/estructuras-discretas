@@ -18,7 +18,7 @@ startGame = do
 
     -- Load movies data
     handle <- readFile "data/movies.txt"
-    let movies = [(unifyStr a, b) | (a, b) <- map (read :: String -> (String, String)) $ lines handle]
+    let movies = map (read :: String -> (String, String)) $ lines handle
 
     -- Choose random movie
     gen <- newStdGen
