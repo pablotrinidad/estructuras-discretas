@@ -19,7 +19,7 @@ game lives movies = do
     putStrLn $ snd movie
 
     -- Uncomment when debugging!
-    putStrLn $ fst movie
+    -- putStrLn $ fst movie
 
     -- Retrieve user input and compare it with actual movie title
     usrGuess <- getLine
